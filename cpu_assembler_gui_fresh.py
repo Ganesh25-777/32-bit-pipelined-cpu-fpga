@@ -80,6 +80,8 @@ class CPUAssemblerIDE:
         self.packet_count = 0
         self.last_packet_time = None
         self.last_error = None
+        self.tx_byte_count = 0
+        self.rx_byte_count = 0
 
         self.port_var = tk.StringVar()
         self.baud_var = tk.StringVar(value="921600")
@@ -946,6 +948,10 @@ HLT
             self.connection_var.set(f"Connected • {port}")
             self.connect_button.config(text="Disconnect")
             self.status_dot.config(fg=self.C["green"])
+            self.append_serial_log(
+                f"CONNECTED: {port} at {baud} baud, 8-N-1. "
+                "Open this bottom Serial Monitor tab to inspect UART bytes."
+            )
             self.status("FPGA connected")
 
         except Exception as exc:
@@ -1011,8 +1017,15 @@ HLT
                         self.handle_simulation_result(item[1])
                         continue
 
-                self.packet_buffer.extend(item)
-                self.extract_packets()
+                if isinstance(item, (bytes, bytearray)) and item:
+                    # Show actual bytes arriving from the FPGA in the Serial Monitor tab.
+                    self.rx_byte_count += len(item)
+                    hex_data = bytes(item).hex(" ").upper()
+                    self.append_serial_log(
+                        f"RX +{len(item)} bytes (total {self.rx_byte_count}): {hex_data}"
+                    )
+                    self.packet_buffer.extend(item)
+                    self.extract_packets()
 
         except queue.Empty:
             pass
@@ -1131,16 +1144,22 @@ HLT
             return
 
         try:
+            bytes_sent = 0
             with self.serial_lock:
-                # Flush stale data before programming.
+                # Clear stale input/output before starting this transmission.
                 self.serial_port.reset_input_buffer()
                 self.serial_port.reset_output_buffer()
 
                 for index, word in enumerate(machine_code):
                     word &= 0xFFFFFFFF
                     data = word.to_bytes(4, byteorder="big")
-
-                    self.serial_port.write(data)
+                    written = self.serial_port.write(data)
+                    if written != len(data):
+                        raise IOError(
+                            f"Short UART write at word {index + 1}: "
+                            f"{written}/{len(data)} bytes"
+                        )
+                    bytes_sent += written
 
                     self.status(
                         f"Sending word {index + 1}/{len(machine_code)}..."
@@ -1148,10 +1167,16 @@ HLT
 
                 self.serial_port.flush()
 
-            self.program_var.set(
-                f"Sent {len(machine_code)} words to FPGA"
+            self.tx_byte_count += bytes_sent
+            self.append_serial_log(
+                f"TX complete: {bytes_sent} bytes sent in "
+                f"{len(machine_code)} words (cumulative TX {self.tx_byte_count}). "
+                "This confirms the PC serial write, not FPGA acknowledgement."
             )
-            self.status("Program sent successfully")
+            self.program_var.set(
+                f"Sent {len(machine_code)} words / {bytes_sent} bytes to FPGA"
+            )
+            self.status(f"UART TX complete: {bytes_sent} bytes written; waiting for FPGA RX packet")
             self.cpu_status_var.set("WAITING")
             self.cpu_badge.config(
                 bg="#713f12",
@@ -1286,6 +1311,22 @@ HLT
     # =========================================================
     # STATUS
     # =========================================================
+
+    def append_serial_log(self, message):
+        """Append UART TX/RX diagnostics to the bottom Serial Monitor tab."""
+        if not hasattr(self, "serial_output"):
+            return
+        try:
+            self.serial_output.config(state="normal")
+            self.serial_output.insert(tk.END, message + "\n")
+            # Bound the log so a long monitoring session does not grow without limit.
+            end_line = int(self.serial_output.index("end-1c").split(".")[0])
+            if end_line > 500:
+                self.serial_output.delete("1.0", f"{end_line - 400}.0")
+            self.serial_output.see(tk.END)
+            self.serial_output.config(state="disabled")
+        except tk.TclError:
+            pass
 
     def status(self, text):
         self.packet_var.set(text)

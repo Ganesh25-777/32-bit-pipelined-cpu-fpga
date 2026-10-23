@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1792059805" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/cpu_top.dcp">
-  <File Type="PA-TCL" Name="nexys_a7_top.tcl"/>
   <File Type="REPORTS-TCL" Name="nexys_a7_top_reports.tcl"/>
-  <File Type="RDS-RDS" Name="nexys_a7_top.vds"/>
-  <File Type="RDS-PROPCONSTRS" Name="nexys_a7_top_drc_synth.rpt"/>
   <File Type="RDS-UTIL" Name="nexys_a7_top_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="nexys_a7_top_utilization_synth.pb"/>
+  <File Type="PA-TCL" Name="nexys_a7_top.tcl"/>
+  <File Type="RDS-RDS" Name="nexys_a7_top.vds"/>
   <File Type="RDS-DCP" Name="nexys_a7_top.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="nexys_a7_top_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="nexys_a7_top_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/ID_stage.v">

@@ -2,11 +2,11 @@
 setlocal
 
 set "VIVADO=D:\2025.1\Vivado\bin"
-set "PROJECT=D:\assembler\cpu_32bit.xpr"
-set "TCL=D:\assembler\run_simulation_fresh.tcl"
-set "RESULT=D:\assembler\simulation_result.json"
+set "PROJECT=D:\cpu_32bit\cpu_32bit.xpr"
+set "TCL=D:\cpu_32bit\run_simulation_fresh.tcl"
+set "RESULT=D:\cpu_32bit\simulation_result.json"
 
-cd /d D:\assembler
+cd /d D:\cpu_32bit
 
 echo ============================================================
 echo CPU GUI SIMULATION: program.hex -^> UART -^> CPU -^> JSON
@@ -20,7 +20,7 @@ if not exist "%PROJECT%" (
     echo ERROR: Vivado project not found: %PROJECT%
     exit /b 1
 )
-if not exist "D:\assembler\program.hex" (
+if not exist "D:\cpu_32bit\program.hex" (
     echo ERROR: program.hex not found. Assemble your program in the GUI first.
     exit /b 1
 )

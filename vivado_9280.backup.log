@@ -3,8 +3,8 @@
 # SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
 # IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
 # SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-# Start of session at: Thu Oct 15 12:35:10 2026
-# Process ID         : 1252
+# Start of session at: Thu Oct 15 14:22:28 2026
+# Process ID         : 9280
 # Current directory  : D:/assembler
 # Command line       : vivado.exe -mode batch -source D:\assembler\run_simulation_fresh.tcl
 # Log file           : D:/assembler/vivado.log
@@ -19,16 +19,22 @@
 # Host memory        : 16368 MB
 # Swap memory        : 10200 MB
 # Total Virtual      : 26569 MB
-# Available Virtual  : 5752 MB
+# Available Virtual  : 9647 MB
 #-----------------------------------------------------------
 source {D:\assembler\run_simulation_fresh.tcl}
 # set PROJECT "D:/assembler/cpu_32bit.xpr"
-# puts "========================================"
-========================================
-# puts " FRESH CPU SIMULATION"
- FRESH CPU SIMULATION
-# puts "========================================"
-========================================
+# puts "============================================================"
+============================================================
+# puts " CPU GUI SIMULATION: HEX -> UART -> CPU -> JSON"
+ CPU GUI SIMULATION: HEX -> UART -> CPU -> JSON
+# puts "============================================================"
+============================================================
+# if {![file exists $PROJECT]} {
+#     error "Vivado project not found: $PROJECT"
+# }
+# if {![file exists "D:/assembler/program.hex"]} {
+#     error "program.hex not found: D:/assembler/program.hex"
+# }
 # open_project $PROJECT
 Scanning sources...
 Finished scanning sources
@@ -118,14 +124,80 @@ WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 avail
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at D:/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu670\2.0\board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at D:/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu670ld\1.0\board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
 WARNING: [Project 1-5713] Board part 'digilentinc.com:nexys-a7-100t:part0:1.3' set for the project  is not found. BoardPart property will be unset. Please select board from latest repo build 
-open_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 493.215 ; gain = 213.691
+open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:11 . Memory (MB): peak = 495.016 ; gain = 215.297
 # set_property top cpu_sim_tb [get_filesets sim_1]
 # update_compile_order -fileset sim_1
+# catch {file delete -force "D:/assembler/simulation_result.json"}
 # launch_simulation -simset sim_1 -mode behavioral
 Command: launch_simulation  -simset sim_1 -mode behavioral
 INFO: [Vivado 12-12493] Simulation top is 'cpu_sim_tb'
-boost::filesystem::remove: The process cannot access the file because it is being used by another process: "D:/assembler/cpu_32bit.sim/sim_1/behav/xsim/simulate.log"
-    while executing
-"launch_simulation -simset sim_1 -mode behavioral"
-    (file "D:\assembler\run_simulation_fresh.tcl" line 12)
-INFO: [Common 17-206] Exiting Vivado at Thu Oct 15 12:35:39 2026...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/assembler/cpu_32bit.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/2025.1/Vivado/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'cpu_sim_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/assembler/cpu_32bit.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj cpu_sim_tb_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/assembler/cpu_32bit.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot cpu_sim_tb_behav xil_defaultlib.cpu_sim_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot cpu_sim_tb_behav xil_defaultlib.cpu_sim_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/assembler/cpu_32bit.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "cpu_sim_tb_behav -key {Behavioral:sim_1:Functional:cpu_sim_tb} -tclbatch {cpu_sim_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source cpu_sim_tb.tcl
+## set curr_wave [current_wave_config]
+## if { [string length $curr_wave] == 0 } {
+##   if { [llength [get_objects]] > 0} {
+##     add_wave /
+##     set_property needs_save false [current_wave_config]
+##   } else {
+##      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+##   }
+## }
+WARNING: [Wavedata 42-489] Can't add object "/cpu_sim_tb/program_mem" to the wave window because it has 131072 bits, which exceeds the display limit of 65536 bits.  To change the display limit, use the command "set_property display_limit <new limit> [current_wave_config]".
+## run 1000ns
+============================================================
+CPU GUI SIMULATION: program.hex -> UART RX -> CPU -> JSON
+HEX input : D:/assembler/program.hex
+JSON output: D:/assembler/simulation_result.json
+============================================================
+CPU_SIM: Loaded 238 instruction words from program.hex.
+CPU_SIM: Releasing UART reset before transmission.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'cpu_sim_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:08 . Memory (MB): peak = 513.832 ; gain = 18.816
+# puts "CPU GUI SIMULATION: Running until testbench finishes..."
+CPU GUI SIMULATION: Running until testbench finishes...
+# run all
+CPU_SIM: UART upload sent; waiting for program_loaded.
+CPU_SIM: Program loaded. Waiting for CPU HLT (max 1000000 cycles).
+CPU_SIM: HALT reached at PC=0x000002a0 after 125 execution cycles.
+CPU_SIM: JSON_RESULT=D:/assembler/simulation_result.json
+CPU_SIM: STATUS=0 HALT=1 PC=0x000002a0 WORDS=238 CYCLES=125
+CPU_SIM: UNKNOWN_REGISTERS=0
+CPU_SIM: Finished. The GUI can now load simulation_result.json.
+$finish called at time : 10336006 ns : File "D:/assembler/cpu_32bit.srcs/sim_1/new/cpu_sim_tb.v" Line 342
+# close_sim
+INFO: [Simtcl 6-16] Simulation closed
+# close_project
+# puts "CPU GUI SIMULATION: Vivado simulation finished."
+CPU GUI SIMULATION: Vivado simulation finished.
+# exit
+INFO: [Common 17-206] Exiting Vivado at Thu Oct 15 14:22:58 2026...

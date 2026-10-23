@@ -3,12 +3,12 @@
 # SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
 # IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
 # SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-# Start of session at: Thu Oct 15 12:16:29 2026
-# Process ID         : 9120
-# Current directory  : D:/assembler
-# Command line       : vivado.exe -mode batch -source D:\assembler\run_simulation_fresh.tcl
-# Log file           : D:/assembler/vivado.log
-# Journal file       : D:/assembler\vivado.jou
+# Start of session at: Fri Oct 23 23:36:25 2026
+# Process ID         : 11148
+# Current directory  : D:/cpu_32bit
+# Command line       : vivado.exe -mode batch -source D:\cpu_32bit\run_simulation_fresh.tcl
+# Log file           : D:/cpu_32bit/vivado.log
+# Journal file       : D:/cpu_32bit\vivado.jou
 # Running On         : GANESH
 # Platform           : Windows Server 2016 or Windows 10
 # Operating System   : 26200
@@ -17,19 +17,26 @@
 # CPU Physical cores : 4
 # CPU Logical cores  : 8
 # Host memory        : 16368 MB
-# Swap memory        : 10200 MB
-# Total Virtual      : 26569 MB
-# Available Virtual  : 4136 MB
+# Swap memory        : 9663 MB
+# Total Virtual      : 26032 MB
+# Available Virtual  : 7932 MB
 #-----------------------------------------------------------
-source {D:\assembler\run_simulation_fresh.tcl}
-# set PROJECT "D:/assembler/cpu_32bit.xpr"
-# puts "========================================"
-========================================
-# puts " FRESH CPU SIMULATION"
- FRESH CPU SIMULATION
-# puts "========================================"
-========================================
+source {D:\cpu_32bit\run_simulation_fresh.tcl}
+# set PROJECT "D:/cpu_32bit/cpu_32bit.xpr"
+# puts "============================================================"
+============================================================
+# puts " CPU GUI SIMULATION: HEX -> UART -> CPU -> JSON"
+ CPU GUI SIMULATION: HEX -> UART -> CPU -> JSON
+# puts "============================================================"
+============================================================
+# if {![file exists $PROJECT]} {
+#     error "Vivado project not found: $PROJECT"
+# }
+# if {![file exists "D:/cpu_32bit/program.hex"]} {
+#     error "program.hex not found: D:/cpu_32bit/program.hex"
+# }
 # open_project $PROJECT
+INFO: [Project 1-313] Project file moved from 'D:/assembler' since last save.
 Scanning sources...
 Finished scanning sources
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:emb-plus-vpr-4616:part0:1.0 available at D:/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\emb-plus-vpr-4616\1.0\board.xml as part xcve2302-sfva784-2mp-e-s specified in board_part file is either invalid or not available
@@ -118,14 +125,178 @@ WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 avail
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at D:/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu670\2.0\board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at D:/2025.1/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu670ld\1.0\board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
 WARNING: [Project 1-5713] Board part 'digilentinc.com:nexys-a7-100t:part0:1.3' set for the project  is not found. BoardPart property will be unset. Please select board from latest repo build 
-open_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 496.621 ; gain = 214.637
+open_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 497.082 ; gain = 216.980
 # set_property top cpu_sim_tb [get_filesets sim_1]
 # update_compile_order -fileset sim_1
+# catch {file delete -force "D:/cpu_32bit/simulation_result.json"}
 # launch_simulation -simset sim_1 -mode behavioral
 Command: launch_simulation  -simset sim_1 -mode behavioral
 INFO: [Vivado 12-12493] Simulation top is 'cpu_sim_tb'
-boost::filesystem::remove: The process cannot access the file because it is being used by another process: "D:/assembler/cpu_32bit.sim/sim_1/behav/xsim/simulate.log"
-    while executing
-"launch_simulation -simset sim_1 -mode behavioral"
-    (file "D:\assembler\run_simulation_fresh.tcl" line 12)
-INFO: [Common 17-206] Exiting Vivado at Thu Oct 15 12:16:53 2026...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/cpu_32bit/cpu_32bit.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/2025.1/Vivado/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'cpu_sim_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/cpu_32bit/cpu_32bit.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj cpu_sim_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/ID_stage.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module id_stage
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/IF_stage.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module if_stage
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/Stalling_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module stalling_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/alu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/alu_input_mux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu_input_mux
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/control_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/data_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/ex_mem_reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ex_mem_register
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/ex_stage.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ex_stage
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/forwarding_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module forwarding_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/id_ex_reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module id_ex_register
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/if_id_reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module if_id_register
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/immidiate_generator.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module immediate_generator
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/ins_mem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ins_mem
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/instruction_decoder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module instruction_decoder
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/mem_stage.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mem_stage
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/mem_wb_reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mem_wb_register
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/pc_next_logic.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pc_next_logic
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/program_counter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module program_counter
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/register_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module register_file
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/uart.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_rx
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/uart_program_loader.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_program_loader
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/wb_stage.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module wb_stage
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/cpu_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cpu_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/uart_tx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_tx
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/debug_moniter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module debug_monitor
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/nexys_a7_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nexys_a7_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sources_1/new/mul_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mul_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.srcs/sim_1/new/cpu_sim_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cpu_sim_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/cpu_32bit/cpu_32bit.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/cpu_32bit/cpu_32bit.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot cpu_sim_tb_behav xil_defaultlib.cpu_sim_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot cpu_sim_tb_behav xil_defaultlib.cpu_sim_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.uart_rx_default
+Compiling module xil_defaultlib.uart_program_loader
+Compiling module xil_defaultlib.register_file
+Compiling module xil_defaultlib.program_counter
+Compiling module xil_defaultlib.ins_mem
+Compiling module xil_defaultlib.pc_next_logic
+Compiling module xil_defaultlib.if_stage
+Compiling module xil_defaultlib.if_id_register
+Compiling module xil_defaultlib.instruction_decoder
+Compiling module xil_defaultlib.control_unit
+Compiling module xil_defaultlib.immediate_generator
+Compiling module xil_defaultlib.id_stage
+Compiling module xil_defaultlib.id_ex_register
+Compiling module xil_defaultlib.alu_input_mux
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.mul_unit
+Compiling module xil_defaultlib.ex_stage
+Compiling module xil_defaultlib.ex_mem_register
+Compiling module xil_defaultlib.data_memory
+Compiling module xil_defaultlib.mem_stage
+Compiling module xil_defaultlib.mem_wb_register
+Compiling module xil_defaultlib.wb_stage
+Compiling module xil_defaultlib.forwarding_unit
+Compiling module xil_defaultlib.stalling_unit
+Compiling module xil_defaultlib.debug_monitor
+Compiling module xil_defaultlib.uart_tx_default
+Compiling module xil_defaultlib.cpu_top
+Compiling module xil_defaultlib.cpu_sim_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot cpu_sim_tb_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:08 . Memory (MB): peak = 501.715 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '8' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/cpu_32bit/cpu_32bit.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "cpu_sim_tb_behav -key {Behavioral:sim_1:Functional:cpu_sim_tb} -tclbatch {cpu_sim_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source cpu_sim_tb.tcl
+## set curr_wave [current_wave_config]
+## if { [string length $curr_wave] == 0 } {
+##   if { [llength [get_objects]] > 0} {
+##     add_wave /
+##     set_property needs_save false [current_wave_config]
+##   } else {
+##      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+##   }
+## }
+WARNING: [Wavedata 42-489] Can't add object "/cpu_sim_tb/program_mem" to the wave window because it has 131072 bits, which exceeds the display limit of 65536 bits.  To change the display limit, use the command "set_property display_limit <new limit> [current_wave_config]".
+## run 1000ns
+============================================================
+CPU GUI SIMULATION: program.hex -> UART RX -> CPU -> JSON
+HEX input : D:/assembler/program.hex
+JSON output: D:/assembler/simulation_result.json
+============================================================
+WARNING: file D:/assembler/program.hex could not be opened
+CPU_SIM: ERROR: Cannot open program.hex: D:/assembler/program.hex
+WARNING: file D:/assembler/simulation_result.json could not be opened
+CPU_SIM: ERROR: Cannot create JSON result: D:/assembler/simulation_result.json
+CPU_SIM: Simulation did not start because input validation failed.
+$finish called at time : 120 ns : File "D:/cpu_32bit/cpu_32bit.srcs/sim_1/new/cpu_sim_tb.v" Line 293
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'cpu_sim_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:15 . Memory (MB): peak = 517.031 ; gain = 19.949
+# puts "CPU GUI SIMULATION: Running until testbench finishes..."
+CPU GUI SIMULATION: Running until testbench finishes...
+# run all
+CPU_SIM: Loaded 0 instruction words from program.hex.
+CPU_SIM: Releasing UART reset before transmission.
+CPU_SIM: UART upload sent; waiting for program_loaded.
+CPU_SIM: Program loaded. Waiting for CPU HLT (max 1000000 cycles).
+CPU_SIM: TIMEOUT at PC=0x003d09f0 INSTR=0xxxxxxxxx after 1000000 cycles.
+WARNING: file D:/assembler/simulation_result.json could not be opened
+CPU_SIM: ERROR: Cannot create JSON result: D:/assembler/simulation_result.json
+CPU_SIM: Finished. The GUI can now load simulation_result.json.
+$finish called at time : 10043636 ns : File "D:/cpu_32bit/cpu_32bit.srcs/sim_1/new/cpu_sim_tb.v" Line 342
+# close_sim
+INFO: [Simtcl 6-16] Simulation closed
+# close_project
+# puts "CPU GUI SIMULATION: Vivado simulation finished."
+CPU GUI SIMULATION: Vivado simulation finished.
+# exit
+INFO: [Common 17-206] Exiting Vivado at Fri Oct 23 23:37:03 2026...
