@@ -1,0 +1,37 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../../2025.1/Vivado/data/rsb/busdef" \
+"../../../../cpu_32bit.srcs/sources_1/new/ID_stage.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/IF_stage.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/Stalling_unit.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/alu.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/alu_input_mux.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/control_unit.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/data_memory.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/ex_mem_reg.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/ex_stage.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/forwarding_unit.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/id_ex_reg.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/if_id_reg.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/immidiate_generator.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/ins_mem.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/instruction_decoder.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/mem_stage.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/mem_wb_reg.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/pc_next_logic.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/program_counter.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/register_memory.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/uart.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/uart_program_loader.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/wb_stage.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/cpu_top.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/uart_tx.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/debug_moniter.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/nexys_a7_top.v" \
+"../../../../cpu_32bit.srcs/sources_1/new/mul_unit.v" \
+"../../../../cpu_32bit.srcs/sim_1/new/cpu_sim_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

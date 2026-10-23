@@ -1,0 +1,29 @@
+# AMD/Xilinx Vivado generated work files
+.Xil/
+*.jou
+*.log
+*.str
+*.wdb
+*.wcfg
+*.dcp
+*.rpt
+*.bit
+*.ltx
+cpu_32bit.cache/
+cpu_32bit.gen/
+cpu_32bit.hw/
+cpu_32bit.ip_user_files/
+cpu_32bit.runs/
+cpu_32bit.sim/
+
+# Python cache / compiled files
+__pycache__/
+*.py[cod]
+
+# Temporary and backup files
+*.tmp
+*.bak
+*~
+
+# Do not commit full project ZIP archives by default
+*.zip

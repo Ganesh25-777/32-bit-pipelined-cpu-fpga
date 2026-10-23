@@ -1,0 +1,16 @@
+Time resolution is 1 ps
+============================================================
+CPU GUI SIMULATION: program.hex -> UART RX -> CPU -> JSON
+HEX input : D:/assembler/program.hex
+JSON output: D:/assembler/simulation_result.json
+============================================================
+CPU_SIM: Loaded 238 instruction words from program.hex.
+CPU_SIM: Releasing UART reset before transmission.
+CPU_SIM: UART upload sent; waiting for program_loaded.
+CPU_SIM: Program loaded. Waiting for CPU HLT (max 1000000 cycles).
+CPU_SIM: HALT reached at PC=0x000002a0 after 125 execution cycles.
+CPU_SIM: JSON_RESULT=D:/assembler/simulation_result.json
+CPU_SIM: STATUS=0 HALT=1 PC=0x000002a0 WORDS=238 CYCLES=125
+CPU_SIM: UNKNOWN_REGISTERS=0
+CPU_SIM: Finished. The GUI can now load simulation_result.json.
+$finish called at time : 10336006 ns : File "D:/assembler/cpu_32bit.srcs/sim_1/new/cpu_sim_tb.v" Line 342

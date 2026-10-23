@@ -1,0 +1,33 @@
+srcscan starts
+INFO: analyzing module id_stage (VERI-9002)
+INFO: analyzing module if_stage (VERI-9002)
+INFO: analyzing module stalling_unit (VERI-9002)
+INFO: analyzing module alu (VERI-9002)
+INFO: analyzing module alu_input_mux (VERI-9002)
+INFO: analyzing module control_unit (VERI-9002)
+INFO: analyzing module cpu_top (VERI-9002)
+INFO: analyzing module data_memory (VERI-9002)
+INFO: analyzing module debug_monitor (VERI-9002)
+INFO: analyzing module ex_mem_register (VERI-9002)
+INFO: analyzing module ex_stage (VERI-9002)
+INFO: analyzing module forwarding_unit (VERI-9002)
+INFO: analyzing module id_ex_register (VERI-9002)
+INFO: analyzing module if_id_register (VERI-9002)
+INFO: analyzing module immediate_generator (VERI-9002)
+INFO: analyzing module ins_mem (VERI-9002)
+INFO: analyzing module instruction_decoder (VERI-9002)
+INFO: analyzing module mem_stage (VERI-9002)
+INFO: analyzing module mem_wb_register (VERI-9002)
+INFO: analyzing module nexys_a7_top (VERI-9002)
+INFO: analyzing module pc_next_logic (VERI-9002)
+INFO: analyzing module program_counter (VERI-9002)
+INFO: analyzing module register_file (VERI-9002)
+INFO: analyzing module uart_rx (VERI-9002)
+INFO: analyzing module uart_program_loader (VERI-9002)
+INFO: analyzing module uart_tx (VERI-9002)
+INFO: analyzing module wb_stage (VERI-9002)
+Listing tops:
+VeriTop library:xil_defaultlib mod:nexys_a7_top
+END of tops
+D:/assembler/cpu_32bit.srcs/sources_1/new/nexys_a7_top.v(3): INFO: compiling module 'nexys_a7_top_default' (VERI-1018)
+srcscan exits with return value 0

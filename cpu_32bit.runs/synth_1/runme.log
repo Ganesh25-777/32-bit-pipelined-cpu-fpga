@@ -1,0 +1,478 @@
+
+*** Running vivado
+    with args -log nexys_a7_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source nexys_a7_top.tcl
+
+
+
+****** Vivado v2025.1 (64-bit)
+  **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+  **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+  **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+  **** Start of session at: Thu Oct 15 15:53:28 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source nexys_a7_top.tcl -notrace
+create_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 492.922 ; gain = 212.750
+Command: read_checkpoint -auto_incremental -incremental D:/assembler/cpu_32bit.srcs/utils_1/imports/synth_1/cpu_top.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from D:/assembler/cpu_32bit.srcs/utils_1/imports/synth_1/cpu_top.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top nexys_a7_top -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 11496
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1195.281 ; gain = 494.535
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'nexys_a7_top' [D:/assembler/cpu_32bit.srcs/sources_1/new/nexys_a7_top.v:3]
+INFO: [Synth 8-6157] synthesizing module 'cpu_top' [D:/assembler/cpu_32bit.srcs/sources_1/new/cpu_top.v:3]
+INFO: [Synth 8-6157] synthesizing module 'uart_rx' [D:/assembler/cpu_32bit.srcs/sources_1/new/uart.v:27]
+	Parameter CLK_FREQ bound to: 100000000 - type: integer 
+	Parameter BAUD_RATE bound to: 921600 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'uart_rx' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/uart.v:27]
+INFO: [Synth 8-6157] synthesizing module 'uart_program_loader' [D:/assembler/cpu_32bit.srcs/sources_1/new/uart_program_loader.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'uart_program_loader' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/uart_program_loader.v:23]
+INFO: [Synth 8-6157] synthesizing module 'register_file' [D:/assembler/cpu_32bit.srcs/sources_1/new/register_memory.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'register_file' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/register_memory.v:3]
+INFO: [Synth 8-6157] synthesizing module 'if_stage' [D:/assembler/cpu_32bit.srcs/sources_1/new/IF_stage.v:3]
+INFO: [Synth 8-6157] synthesizing module 'program_counter' [D:/assembler/cpu_32bit.srcs/sources_1/new/program_counter.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'program_counter' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/program_counter.v:1]
+INFO: [Synth 8-6157] synthesizing module 'ins_mem' [D:/assembler/cpu_32bit.srcs/sources_1/new/ins_mem.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'ins_mem' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/ins_mem.v:2]
+INFO: [Synth 8-6157] synthesizing module 'pc_next_logic' [D:/assembler/cpu_32bit.srcs/sources_1/new/pc_next_logic.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'pc_next_logic' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/pc_next_logic.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'if_stage' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/IF_stage.v:3]
+INFO: [Synth 8-6157] synthesizing module 'if_id_register' [D:/assembler/cpu_32bit.srcs/sources_1/new/if_id_reg.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'if_id_register' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/if_id_reg.v:1]
+INFO: [Synth 8-6157] synthesizing module 'id_stage' [D:/assembler/cpu_32bit.srcs/sources_1/new/ID_stage.v:3]
+INFO: [Synth 8-6157] synthesizing module 'instruction_decoder' [D:/assembler/cpu_32bit.srcs/sources_1/new/instruction_decoder.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'instruction_decoder' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/instruction_decoder.v:22]
+INFO: [Synth 8-6157] synthesizing module 'control_unit' [D:/assembler/cpu_32bit.srcs/sources_1/new/control_unit.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'control_unit' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/control_unit.v:3]
+INFO: [Synth 8-6157] synthesizing module 'immediate_generator' [D:/assembler/cpu_32bit.srcs/sources_1/new/immidiate_generator.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'immediate_generator' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/immidiate_generator.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'id_stage' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/ID_stage.v:3]
+INFO: [Synth 8-6157] synthesizing module 'id_ex_register' [D:/assembler/cpu_32bit.srcs/sources_1/new/id_ex_reg.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'id_ex_register' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/id_ex_reg.v:3]
+INFO: [Synth 8-6157] synthesizing module 'ex_stage' [D:/assembler/cpu_32bit.srcs/sources_1/new/ex_stage.v:3]
+INFO: [Synth 8-6157] synthesizing module 'alu_input_mux' [D:/assembler/cpu_32bit.srcs/sources_1/new/alu_input_mux.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'alu_input_mux' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/alu_input_mux.v:24]
+INFO: [Synth 8-6157] synthesizing module 'alu' [D:/assembler/cpu_32bit.srcs/sources_1/new/alu.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'alu' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/alu.v:3]
+INFO: [Synth 8-6157] synthesizing module 'mul_unit' [D:/assembler/cpu_32bit.srcs/sources_1/new/mul_unit.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'mul_unit' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/mul_unit.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'ex_stage' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/ex_stage.v:3]
+INFO: [Synth 8-6157] synthesizing module 'ex_mem_register' [D:/assembler/cpu_32bit.srcs/sources_1/new/ex_mem_reg.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'ex_mem_register' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/ex_mem_reg.v:3]
+INFO: [Synth 8-6157] synthesizing module 'mem_stage' [D:/assembler/cpu_32bit.srcs/sources_1/new/mem_stage.v:3]
+INFO: [Synth 8-6157] synthesizing module 'data_memory' [D:/assembler/cpu_32bit.srcs/sources_1/new/data_memory.v:72]
+INFO: [Synth 8-6155] done synthesizing module 'data_memory' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/data_memory.v:72]
+INFO: [Synth 8-6155] done synthesizing module 'mem_stage' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/mem_stage.v:3]
+INFO: [Synth 8-6157] synthesizing module 'mem_wb_register' [D:/assembler/cpu_32bit.srcs/sources_1/new/mem_wb_reg.v:98]
+INFO: [Synth 8-6155] done synthesizing module 'mem_wb_register' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/mem_wb_reg.v:98]
+INFO: [Synth 8-6157] synthesizing module 'wb_stage' [D:/assembler/cpu_32bit.srcs/sources_1/new/wb_stage.v:46]
+INFO: [Synth 8-6155] done synthesizing module 'wb_stage' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/wb_stage.v:46]
+INFO: [Synth 8-6157] synthesizing module 'forwarding_unit' [D:/assembler/cpu_32bit.srcs/sources_1/new/forwarding_unit.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'forwarding_unit' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/forwarding_unit.v:4]
+INFO: [Synth 8-6157] synthesizing module 'stalling_unit' [D:/assembler/cpu_32bit.srcs/sources_1/new/Stalling_unit.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'stalling_unit' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/Stalling_unit.v:13]
+INFO: [Synth 8-6157] synthesizing module 'debug_monitor' [D:/assembler/cpu_32bit.srcs/sources_1/new/debug_moniter.v:3]
+	Parameter CLK_FREQ bound to: 100000000 - type: integer 
+	Parameter MONITOR_INTERVAL bound to: 10000000 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'debug_monitor' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/debug_moniter.v:3]
+INFO: [Synth 8-6157] synthesizing module 'uart_tx' [D:/assembler/cpu_32bit.srcs/sources_1/new/uart_tx.v:23]
+	Parameter CLK_FREQ bound to: 100000000 - type: integer 
+	Parameter BAUD_RATE bound to: 921600 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/uart_tx.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'cpu_top' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/cpu_top.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'nexys_a7_top' (0#1) [D:/assembler/cpu_32bit.srcs/sources_1/new/nexys_a7_top.v:3]
+WARNING: [Synth 8-7129] Port ex_rs[4] in module ex_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ex_rs[3] in module ex_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ex_rs[2] in module ex_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ex_rs[1] in module ex_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ex_rs[0] in module ex_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module id_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module id_stage is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1318.258 ; gain = 617.512
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1318.258 ; gain = 617.512
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1318.258 ; gain = 617.512
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.057 . Memory (MB): peak = 1318.258 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/assembler/cpu_32bit.srcs/constrs_1/new/nexys_a7_top.xdc]
+Finished Parsing XDC File [D:/assembler/cpu_32bit.srcs/constrs_1/new/nexys_a7_top.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/assembler/cpu_32bit.srcs/constrs_1/new/nexys_a7_top.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/nexys_a7_top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/nexys_a7_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1395.449 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 1395.449 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1395.449 ; gain = 694.703
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1395.449 ; gain = 694.703
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1395.449 ; gain = 694.703
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'byte_count_reg' in module 'uart_program_loader'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'debug_monitor'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'uart_tx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                               00 |                               00
+                 iSTATE0 |                               01 |                               01
+                 iSTATE1 |                               10 |                               10
+                 iSTATE2 |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'byte_count_reg' using encoding 'sequential' in module 'uart_program_loader'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                             0000
+             CAPTURE_REG |                              001 |                             0001
+               LOAD_BYTE |                              010 |                             0011
+               SEND_BYTE |                              011 |                             0100
+               WAIT_BUSY |                              100 |                             0101
+               WAIT_IDLE |                              101 |                             0110
+                NEXT_REG |                              110 |                             0010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'debug_monitor'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                               00 |                              000
+                   START |                               01 |                              001
+                    DATA |                               10 |                              010
+                    STOP |                               11 |                              011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'uart_tx'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1395.449 ; gain = 694.703
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 5     
+	   3 Input   32 Bit       Adders := 1     
+	   2 Input   24 Bit       Adders := 1     
+	   2 Input   16 Bit       Adders := 1     
+	   2 Input    8 Bit       Adders := 1     
+	   2 Input    6 Bit       Adders := 1     
+	   2 Input    5 Bit       Adders := 1     
+	   2 Input    4 Bit       Adders := 1     
+	   2 Input    3 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 82    
+	               26 Bit    Registers := 1     
+	               16 Bit    Registers := 2     
+	               12 Bit    Registers := 1     
+	                8 Bit    Registers := 5     
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 7     
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 26    
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 18    
+	   4 Input   32 Bit        Muxes := 2     
+	   3 Input   32 Bit        Muxes := 2     
+	   2 Input   26 Bit        Muxes := 1     
+	   2 Input   24 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 2     
+	   2 Input    8 Bit        Muxes := 2     
+	   3 Input    8 Bit        Muxes := 1     
+	   7 Input    8 Bit        Muxes := 1     
+	   7 Input    6 Bit        Muxes := 1     
+	   2 Input    5 Bit        Muxes := 5     
+	   7 Input    5 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 2     
+	   3 Input    4 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 3     
+	   7 Input    3 Bit        Muxes := 1     
+	   4 Input    3 Bit        Muxes := 1     
+	   4 Input    2 Bit        Muxes := 2     
+	   2 Input    2 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 85    
+	   4 Input    1 Bit        Muxes := 8     
+	  18 Input    1 Bit        Muxes := 11    
+	   7 Input    1 Bit        Muxes := 8     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3936] Found unconnected internal register 'MUL_UNIT/b_q_reg' and it is trimmed from '32' to '16' bits. [D:/assembler/cpu_32bit.srcs/sources_1/new/mul_unit.v:36]
+WARNING: [Synth 8-3936] Found unconnected internal register 'MUL_UNIT/a_q_reg' and it is trimmed from '32' to '16' bits. [D:/assembler/cpu_32bit.srcs/sources_1/new/mul_unit.v:35]
+DSP Report: Generating DSP MUL_UNIT/mul_ll, operation Mode is: A2*B2.
+DSP Report: register MUL_UNIT/b_q_reg is absorbed into DSP MUL_UNIT/mul_ll.
+DSP Report: register MUL_UNIT/a_q_reg is absorbed into DSP MUL_UNIT/mul_ll.
+DSP Report: operator MUL_UNIT/mul_ll is absorbed into DSP MUL_UNIT/mul_ll.
+DSP Report: Generating DSP MUL_UNIT/mul_lh, operation Mode is: A2*B2.
+DSP Report: register MUL_UNIT/mul_high is absorbed into DSP MUL_UNIT/mul_lh.
+DSP Report: register MUL_UNIT/a_q_reg is absorbed into DSP MUL_UNIT/mul_lh.
+DSP Report: operator MUL_UNIT/mul_lh is absorbed into DSP MUL_UNIT/mul_lh.
+DSP Report: Generating DSP MUL_UNIT/mul_high, operation Mode is: C+A2*B2.
+DSP Report: register MUL_UNIT/b_q_reg is absorbed into DSP MUL_UNIT/mul_high.
+DSP Report: register MUL_UNIT/mul_hl is absorbed into DSP MUL_UNIT/mul_high.
+DSP Report: operator MUL_UNIT/mul_high is absorbed into DSP MUL_UNIT/mul_high.
+DSP Report: operator MUL_UNIT/mul_hl is absorbed into DSP MUL_UNIT/mul_high.
+WARNING: [Synth 8-7129] Port mem_alu_result[31] in module mem_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mem_alu_result[30] in module mem_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mem_alu_result[29] in module mem_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mem_alu_result[28] in module mem_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mem_alu_result[27] in module mem_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mem_alu_result[26] in module mem_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mem_alu_result[25] in module mem_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mem_alu_result[24] in module mem_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mem_alu_result[23] in module mem_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mem_alu_result[22] in module mem_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mem_alu_result[21] in module mem_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mem_alu_result[20] in module mem_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mem_alu_result[19] in module mem_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mem_alu_result[18] in module mem_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mem_alu_result[17] in module mem_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mem_alu_result[16] in module mem_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mem_alu_result[15] in module mem_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mem_alu_result[14] in module mem_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mem_alu_result[13] in module mem_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mem_alu_result[12] in module mem_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mem_alu_result[1] in module mem_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mem_alu_result[0] in module mem_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ex_rs[4] in module ex_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ex_rs[3] in module ex_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ex_rs[2] in module ex_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ex_rs[1] in module ex_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ex_rs[0] in module ex_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module id_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module id_stage is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1461.016 ; gain = 760.270
+---------------------------------------------------------------------------------
+ Sort Area is  MUL_UNIT/mul_high_3 : 0 0 : 2025 2025 : Used 1 time 0
+ Sort Area is  MUL_UNIT/mul_lh_2 : 0 0 : 1978 1978 : Used 1 time 0
+ Sort Area is  MUL_UNIT/mul_ll_0 : 0 0 : 1978 1978 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++-----------------------+-----------------------------+-----------+----------------------+------------------+
+|Module Name            | RTL Object                  | Inference | Size (Depth x Width) | Primitives       | 
++-----------------------+-----------------------------+-----------+----------------------+------------------+
+|CPU_INSTANCE/IF_STAGE  | IMEM_UNIT/memory_reg        | Implied   | 4 K x 32             | RAM64M x 704     | 
+|CPU_INSTANCE/MEM_STAGE | DATA_MEMORY_UNIT/memory_reg | Implied   | 1 K x 32             | RAM256X1S x 128  | 
++-----------------------+-----------------------------+-----------+----------------------+------------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|mul_unit    | A2*B2       | 16     | 16     | -      | -      | 32     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mul_unit    | A2*B2       | 16     | 16     | -      | -      | 32     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mul_unit    | C+A2*B2     | 16     | 16     | 16     | -      | 16     | 1    | 1    | 0    | -    | -     | 0    | 0    | 
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:54 ; elapsed = 00:00:56 . Memory (MB): peak = 1575.344 ; gain = 874.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:58 ; elapsed = 00:01:00 . Memory (MB): peak = 1598.262 ; gain = 897.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping Report
++-----------------------+-----------------------------+-----------+----------------------+------------------+
+|Module Name            | RTL Object                  | Inference | Size (Depth x Width) | Primitives       | 
++-----------------------+-----------------------------+-----------+----------------------+------------------+
+|CPU_INSTANCE/IF_STAGE  | IMEM_UNIT/memory_reg        | Implied   | 4 K x 32             | RAM64M x 704     | 
+|CPU_INSTANCE/MEM_STAGE | DATA_MEMORY_UNIT/memory_reg | Implied   | 1 K x 32             | RAM256X1S x 128  | 
++-----------------------+-----------------------------+-----------+----------------------+------------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:02 ; elapsed = 00:01:05 . Memory (MB): peak = 1648.336 ; gain = 947.590
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:11 ; elapsed = 00:01:14 . Memory (MB): peak = 1831.918 ; gain = 1131.172
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:11 ; elapsed = 00:01:14 . Memory (MB): peak = 1831.918 ; gain = 1131.172
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:13 ; elapsed = 00:01:16 . Memory (MB): peak = 1831.918 ; gain = 1131.172
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:13 ; elapsed = 00:01:16 . Memory (MB): peak = 1831.918 ; gain = 1131.172
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:13 ; elapsed = 00:01:16 . Memory (MB): peak = 1831.918 ; gain = 1131.172
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:13 ; elapsed = 00:01:16 . Memory (MB): peak = 1831.918 ; gain = 1131.172
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|mul_unit    | A'*B'       | 16     | 16     | -      | -      | 32     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mul_unit    | A'*B'       | 16     | 16     | -      | -      | 32     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mul_unit    | C+A'*B'     | 16     | 16     | 16     | -      | 16     | 1    | 1    | 0    | -    | -     | 0    | 0    | 
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+----------+------+
+|      |Cell      |Count |
++------+----------+------+
+|1     |BUFG      |     1|
+|2     |CARRY4    |    61|
+|3     |DSP48E1   |     3|
+|5     |LUT1      |    18|
+|6     |LUT2      |   249|
+|7     |LUT3      |   149|
+|8     |LUT4      |    82|
+|9     |LUT5      |   474|
+|10    |LUT6      |  1930|
+|11    |MUXF7     |   768|
+|12    |MUXF8     |   128|
+|13    |RAM256X1S |   128|
+|14    |RAM64M    |   704|
+|15    |FDCE      |  1812|
+|16    |FDPE      |     1|
+|17    |FDRE      |  1025|
+|18    |IBUF      |     3|
+|19    |OBUF      |     1|
++------+----------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:13 ; elapsed = 00:01:16 . Memory (MB): peak = 1831.918 ; gain = 1131.172
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 32 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:59 ; elapsed = 00:01:13 . Memory (MB): peak = 1831.918 ; gain = 1053.980
+Synthesis Optimization Complete : Time (s): cpu = 00:01:13 ; elapsed = 00:01:16 . Memory (MB): peak = 1831.918 ; gain = 1131.172
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.114 . Memory (MB): peak = 1843.055 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1792 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1846.762 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 832 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 128 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 704 instances
+
+Synth Design complete | Checksum: 7f0c0c71
+INFO: [Common 17-83] Releasing license: Synthesis
+83 Infos, 39 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:22 ; elapsed = 00:01:28 . Memory (MB): peak = 1846.762 ; gain = 1345.438
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.044 . Memory (MB): peak = 1846.762 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'D:/assembler/cpu_32bit.runs/synth_1/nexys_a7_top.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file nexys_a7_top_utilization_synth.rpt -pb nexys_a7_top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Oct 15 15:55:08 2026...
